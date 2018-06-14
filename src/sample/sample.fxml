@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="550" prefWidth="750" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+       <VBox alignment="CENTER">
+           <Label styleClass="h1, font-italic, color-interlab" text="INTERLAB - Consulta de Resultados" />
+           <VBox alignment="BOTTOM_LEFT" spacing="5">
+               <Label text="Numero de Orden" />
+               <TextField promptText="Numero de Orden" fx:id="txtOrden" styleClass="form-control, form-control-lg" />
+               <Label text="Clave" />
+               <PasswordField promptText="Clave" fx:id="txtClave" styleClass="form-control, form-control-lg" />
+               <HBox spacing="5" alignment="CENTER">
+                   <Button styleClass="btn, btn-primary, btn-lg, font-bold" text="Consultar" onAction="#consultar" fx:id="btnConsultar" />
+                   <Button styleClass="btn, btn-danger, btn-lg, font-bold" text="Cancelar" onAction="#cancelar" />
+               </HBox>
+           </VBox>
+       </VBox>
+   </top>
+   <center>
+       <ImageView>
+           <Image url="@logo_interlab.png" requestedHeight="300" preserveRatio="true"/>
+       </ImageView>
+   </center>
+</BorderPane>

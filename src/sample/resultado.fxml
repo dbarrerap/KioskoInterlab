@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane prefHeight="550.0" prefWidth="750.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Resultado">
+    <top>
+        <HBox alignment="CENTER" prefWidth="450" spacing="5" styleClass="container">
+            <ImageView>
+                <Image preserveRatio="true" requestedHeight="100" url="@logo_interlab.png" />
+            </ImageView>
+            <Label styleClass="h1, font-italic, color-interlab" text="INTERLAB - Consulta de Resultados" />
+        </HBox>
+    </top>
+    <center>
+        <VBox styleClass="container">
+            <Label styleClass="h2" text="Resultados" />
+            <WebView fx:id="webView">
+            </WebView>
+        </VBox>
+    </center>
+    <bottom>
+        <StackPane alignment="CENTER_RIGHT" styleClass="container">
+            <Button onAction="#imprimir" styleClass="btn, btn-success, btn-lg" text="Imprimir" />
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+        </StackPane>
+    </bottom>
+</BorderPane>
