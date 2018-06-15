@@ -7,8 +7,15 @@
 
 <BorderPane prefHeight="550" prefWidth="750" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <top>
-       <VBox alignment="CENTER">
-           <Label styleClass="h1, font-italic, color-interlab" text="INTERLAB - Consulta de Resultados" />
+       <HBox alignment="CENTER" spacing="20">
+           <ImageView>
+               <Image requestedHeight="100" url="@logo_interlab.png" preserveRatio="true" />
+           </ImageView>
+           <Label text="INTERLAB - Consulta de Resultados" styleClass="h1, color-interlab, font-italic" />
+       </HBox>
+   </top>
+   <center>
+       <VBox alignment="CENTER" styleClass="container">
            <VBox alignment="BOTTOM_LEFT" spacing="5">
                <Label text="Numero de Orden" />
                <TextField promptText="Numero de Orden" fx:id="txtOrden" styleClass="form-control, form-control-lg" />
@@ -16,14 +23,10 @@
                <PasswordField promptText="Clave" fx:id="txtClave" styleClass="form-control, form-control-lg" />
                <HBox spacing="5" alignment="CENTER">
                    <Button styleClass="btn, btn-primary, btn-lg, font-bold" text="Consultar" onAction="#consultar" fx:id="btnConsultar" />
+                   <Button styleClass="btn, btn-secondary, btn-lg, font-bold" text="Limpiar" onAction="#limpiar" />
                    <Button styleClass="btn, btn-danger, btn-lg, font-bold" text="Cancelar" onAction="#cancelar" />
                </HBox>
            </VBox>
        </VBox>
-   </top>
-   <center>
-       <ImageView>
-           <Image url="@logo_interlab.png" requestedHeight="300" preserveRatio="true"/>
-       </ImageView>
    </center>
 </BorderPane>

@@ -57,7 +57,20 @@ public class Controller {
     /**
      * Clear fields for new query.
      */
-    public void cancelar()
+    public void cancelar(ActionEvent event)
+    {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("first.fxml"));
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            window.setScene(scene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void limpiar()
     {
         txtOrden.clear();
         txtClave.clear();
@@ -84,7 +97,7 @@ public class Controller {
             alert.setContentText(err_msg);
             alert.showAndWait();
             err_msg = "";
-            cancelar();
+            limpiar();
         }
     }
 

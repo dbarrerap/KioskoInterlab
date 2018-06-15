@@ -25,7 +25,7 @@
 }
 
 .container {
-    -fx-padding: 0, 15px, 0, 15px;
+    -fx-padding: 15px;
 }
 
 /* Typography */

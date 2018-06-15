@@ -51,6 +51,7 @@ public class Resultado implements Initializable {
             PrinterJob job = PrinterJob.getPrinterJob();
             job.setPageable(new PDFPageable(document));
             job.print();
+            document.close();
         } catch (IOException | PrinterException e) {
             e.printStackTrace();
         }
