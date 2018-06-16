@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.web.WebView?>
 
-<BorderPane prefHeight="550.0" prefWidth="750.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Resultado">
+<BorderPane prefWidth="1080" prefHeight="720" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Resultado">
     <top>
         <HBox alignment="CENTER" prefWidth="450" spacing="5" styleClass="container">
             <ImageView>
@@ -23,11 +22,9 @@
         </VBox>
     </center>
     <bottom>
-        <StackPane alignment="CENTER_RIGHT" styleClass="container">
-            <Button onAction="#imprimir" styleClass="btn, btn-success, btn-lg" text="Imprimir" />
-         <padding>
-            <Insets top="10.0" />
-         </padding>
-        </StackPane>
+        <VBox alignment="CENTER" styleClass="container">
+            <Button onAction="#imprimir" styleClass="btn, btn-success, btn-lg, btn-block" text="Imprimir" disable="true" fx:id="btnImprimir" />
+            <!--<Button onAction="#cancelar" styleClass="btn, btn-danger, btn-lg, btn-block" text="Cancelar" fx:id="btnCancelar" />-->
+        </VBox>
     </bottom>
 </BorderPane>

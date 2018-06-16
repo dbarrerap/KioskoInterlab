@@ -21,14 +21,19 @@
     -fx-text-fill: #212529;
     -fx-font-size: 1em;
     -fx-padding: 15px;
-    -fx-font-family: Calibri, Helvetica, sans-serif;
+    -fx-font-family: Tahoma, sans-serif;
 }
 
 .container {
+    -fx-max-width: Infinity;
     -fx-padding: 15px;
 }
 
 /* Typography */
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    -fx-font-family: Calibri, sans-serif;
+}
 
 .h1 { -fx-font-size: 2.5em; }
 
@@ -57,7 +62,7 @@
     -fx-background-radius: 0.4em;
     -fx-border-width: 1px;
     -fx-border-radius: 0.4em;
-    -fx-border-color: transparent;
+    -fx-border-color: #ccc;
     -fx-padding: 6px, 12px, 6px, 12px;
     -fx-font-weight: bold;
     -fx-text-alignment: center;
@@ -221,6 +226,10 @@
     -fx-font-size: 0.875em;
 }
 
+.btn-block {
+    -fx-max-width: Infinity;
+}
+
 /* Labels */
 
 .alert {
@@ -292,4 +301,9 @@
 /* Colors */
 .color-interlab {
     -fx-text-fill: -fx-interlab-verde;
+}
+
+.btn-numpad {
+    -fx-pref-height: Infinity;
+    -fx-pref-width: 75px;
 }

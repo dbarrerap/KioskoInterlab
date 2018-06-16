@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="550" prefWidth="750" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane prefWidth="1080" prefHeight="720" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <top>
        <HBox alignment="CENTER" spacing="20">
            <ImageView>
@@ -16,12 +16,12 @@
    </top>
    <center>
        <VBox alignment="CENTER" styleClass="container">
-           <VBox alignment="BOTTOM_LEFT" spacing="5">
+           <VBox alignment="BOTTOM_LEFT" spacing="5" styleClass="container">
                <Label text="Numero de Orden" />
                <TextField promptText="Numero de Orden" fx:id="txtOrden" styleClass="form-control, form-control-lg" />
                <Label text="Clave" />
                <PasswordField promptText="Clave" fx:id="txtClave" styleClass="form-control, form-control-lg" />
-               <HBox spacing="5" alignment="CENTER">
+               <HBox spacing="5" alignment="CENTER" styleClass="container">
                    <Button styleClass="btn, btn-primary, btn-lg, font-bold" text="Consultar" onAction="#consultar" fx:id="btnConsultar" />
                    <Button styleClass="btn, btn-secondary, btn-lg, font-bold" text="Limpiar" onAction="#limpiar" />
                    <Button styleClass="btn, btn-danger, btn-lg, font-bold" text="Cancelar" onAction="#cancelar" />
@@ -29,4 +29,99 @@
            </VBox>
        </VBox>
    </center>
+    <bottom>
+        <StackPane>
+            <VBox fx:id="kbfororden" visible="false">
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="1" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="2" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="3" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="4" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="5" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="6" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="7" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="8" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="9" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="*" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="0" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="#" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                </HBox>
+            </VBox>
+            <VBox fx:id="kbforclave" visible="false">
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="1" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                    <Button text="2" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                    <Button text="3" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="4" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                    <Button text="5" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                    <Button text="6" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="7" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                    <Button text="8" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                    <Button text="9" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="*" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                    <Button text="0" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                    <Button text="#" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForClave" />
+                </HBox>
+            </VBox>
+            <!--<VBox fx:id="kbdFull" visible="false">
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="1" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="2" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="3" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="4" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="5" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="6" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="7" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="8" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="9" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="0" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="Q" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="W" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="E" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="R" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="T" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="Y" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="U" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="I" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="O" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                    <Button text="P" styleClass="btn, btn-lg, font-bold, btn-numpad" onAction="#kbForOrden" />
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="A" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="S" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="D" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="F" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="G" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="H" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="J" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="K" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="L" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="Ñ" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="75">
+                    <Button text="Z" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="X" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="C" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="V" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="B" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="N" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                    <Button text="M" styleClass="btn, btn-lg, font-bold, btn-numpad" />
+                </HBox>
+            </VBox>-->
+        </StackPane>
+    </bottom>
 </BorderPane>

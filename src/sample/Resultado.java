@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +28,7 @@ import java.util.ResourceBundle;
 
 public class Resultado implements Initializable {
     @FXML private WebView webView;
+    @FXML private Button btnImprimir;
 
     private Orden orden;
     private static final int BUFFER_SIZE = 8192;
@@ -43,9 +45,9 @@ public class Resultado implements Initializable {
 
     /**
      * Prints PDF file and returns to Query Scene
-     * @param ae Used to get Stage
+     * @param event Used to get Stage
      */
-    public void imprimir(ActionEvent ae) {
+    public void imprimir(ActionEvent event) {
         try {
             PDDocument document = PDDocument.load(new File(filename));
             PrinterJob job = PrinterJob.getPrinterJob();
@@ -57,8 +59,8 @@ public class Resultado implements Initializable {
         }
 
         try {
-            Stage window = (Stage)((Node)ae.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             window.setScene(scene);
             window.show();
@@ -100,13 +102,6 @@ public class Resultado implements Initializable {
                 if (conn.getResponseCode() == HttpURLConnection.HTTP_OK)
                 {
                     InputStream in = url.openStream();
-                    /*OutputStream out = new FileOutputStream(filename);
-                    int length;
-                    byte[] buffer = new byte[BUFFER_SIZE];
-                    while ((length = in.read(buffer)) != -1) {
-                        out.write(buffer, 0, length);
-                        progressCallback(length);
-                    }*/
                     Files.copy(in, new File(filename).toPath(), StandardCopyOption.REPLACE_EXISTING);
                     return true;
                 } else {
@@ -126,11 +121,10 @@ public class Resultado implements Initializable {
         @Override
         public void onPostExecute(Boolean success) {
             if (success) {
-                System.out.println("Cargando visor...");
                 engine.setJavaScriptEnabled(true);
                 File f = new File("viewer.html");
                 engine.load(f.toURI().toString());
-                System.out.println("Visor cargado.");
+                btnImprimir.setDisable(false);
             } else {
                 Alert alert = new Alert(AlertType.WARNING);
                 alert.initModality(Modality.APPLICATION_MODAL);
@@ -144,7 +138,7 @@ public class Resultado implements Initializable {
 
         @Override
         public void progressCallback(Integer... params) {
-            System.out.println("Progress: " + params[0]);
+
         }
     }
 }

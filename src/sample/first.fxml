@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.First"
-            stylesheets="@application.css"
-            prefHeight="600.0" prefWidth="600.0">
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane prefWidth="1080" prefHeight="720" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.First">
     <top>
         <HBox alignment="CENTER" spacing="20">
             <ImageView>
-                <Image requestedHeight="100" url="@logo_interlab.png" preserveRatio="true" />
+                <Image preserveRatio="true" requestedHeight="100" url="@logo_interlab.png" />
             </ImageView>
-            <Label text="INTERLAB - Kiosco Virtual" styleClass="h1, color-interlab, font-italic" />
+            <Label styleClass="h1, color-interlab, font-italic" text="INTERLAB - Kiosco Virtual" />
         </HBox>
     </top>
     <center>
-        <VBox spacing="10" alignment="CENTER">
-            <Button text="Consulta de Resultados" onAction="#consultaResultados" styleClass="btn, btn-info, btn-lg" />
-            <Button text="Opcion 2" styleClass="btn, btn-info, btn-lg" />
-            <Button text="Opcion 3" styleClass="btn, btn-info, btn-lg" />
+        <VBox alignment="CENTER" styleClass="container" spacing="10">
+            <Button onAction="#consultaResultados" styleClass="btn, btn-info, btn-lg, btn-block" text="Consulta de Resultados" />
+            <Button disable="true" visible="false" styleClass="btn, btn-info, btn-lg, btn-block" text="Opcion 2" />
+            <Button disable="true" visible="false" styleClass="btn, btn-info, btn-lg, btn-block" text="Opcion 3" />
         </VBox>
     </center>
 

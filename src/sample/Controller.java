@@ -1,12 +1,15 @@
 package sample;
 
+import javafx.scene.layout.*;
+import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
-import javafx.scene.control.Alert;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.json.JSONObject;
@@ -17,8 +20,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Base64;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
     /**
      * Data provided by Interlab to access WebService
      */
@@ -27,6 +31,7 @@ public class Controller {
 
     @FXML private TextField txtOrden;
     @FXML private PasswordField txtClave;
+    @FXML private VBox kbfororden, kbforclave;
     @FXML Button btnConsultar;
 
     private String err_msg = "";
@@ -87,7 +92,7 @@ public class Controller {
         {
             MyAsyncTask task = new MyAsyncTask(ae);
             task.setDaemon(false);
-            task.execute();
+            task.execute(myURL);
 
         } else {
             Alert alert = new Alert(AlertType.ERROR);
@@ -101,15 +106,41 @@ public class Controller {
         }
     }
 
+    public void kbForOrden(ActionEvent e) {
+        String c = ((Button) e.getSource()).getText();
+        txtOrden.setText(txtOrden.getText() + c);
+    }
+
+    public void kbForClave(ActionEvent e) {
+        String c = ((Button) e.getSource()).getText();
+        txtClave.setText(txtClave.getText() + c);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        txtOrden.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                kbforclave.setVisible(false);
+                kbfororden.setVisible(true);
+            }
+        });
+        txtClave.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                kbforclave.setVisible(true);
+                kbfororden.setVisible(false);
+            }
+        });
+    }
+
     /**
      * Asynchronous Task.
      * Handles networking in the background so UI thread is not compromised.
      */
     private class MyAsyncTask extends AsyncTask<String, Integer, Boolean> {
-        Orden orden;
-        ActionEvent e;
-        HttpURLConnection conn;
-        StringBuilder sb;
+        private Orden orden;
+        private ActionEvent e;
+        private HttpURLConnection conn;
+        private StringBuilder sb;
 
         MyAsyncTask(ActionEvent e) {
             this.e = e;
@@ -133,7 +164,7 @@ public class Controller {
         @Override
         public Boolean doInBackground(String... params) {
             try {
-                URL url = new URL(myURL + "arg0=" + orden.getOrden() + "&arg1=" + orden.getClave() + "&arg2=1");
+                URL url = new URL(params[0] + "arg0=" + orden.getOrden() + "&arg1=" + orden.getClave() + "&arg2=1");
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setDoOutput(true);
